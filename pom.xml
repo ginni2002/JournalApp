@@ -49,6 +49,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+
+<!--			$env:JAVA_HOME = 'C:\Program Files\Eclipse Adoptium\jdk-11.0.21+9'; java -version; mvn clean install sonar:sonar     -->
+<!--			above command is to setup your project in sonar                    -->
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.7.0.1746</version>
+			</plugin>
 		</plugins>
 	</build>
 
