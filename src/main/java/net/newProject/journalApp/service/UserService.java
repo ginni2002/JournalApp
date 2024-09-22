@@ -1,10 +1,12 @@
 package net.newProject.journalApp.service;
 
+import lombok.extern.slf4j.Slf4j;
 import net.newProject.journalApp.entity.User;
 import net.newProject.journalApp.repository.UserRepository;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.repository.ExistsQuery;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -16,6 +18,7 @@ import java.util.Optional;
 
 
 @Component
+@Slf4j
 public class UserService {
 
     @Autowired
@@ -30,6 +33,7 @@ public class UserService {
              userRepository.save(user);
              return true;
          } catch (Exception e){
+             log.error("Error occurred for {} :", user.getUserName() , e);
              return false;
          }
     }
