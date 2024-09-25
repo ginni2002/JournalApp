@@ -1,5 +1,6 @@
 package net.newProject.journalApp.service;
 
+import lombok.extern.slf4j.Slf4j;
 import net.newProject.journalApp.entity.JournalEntry;
 import net.newProject.journalApp.entity.User;
 import net.newProject.journalApp.repository.JournalEntryRepository;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 
 @Component
+@Slf4j
 public class JournalEntryService {
 
     @Autowired
@@ -68,7 +70,7 @@ public class JournalEntryService {
          }
 
      }catch(Exception e){
-         System.out.println(e);
+         log.error("Error: ", e);
          throw new RuntimeException("An error occurred while deleting the entry. " ,e);
      }
         return removed;
